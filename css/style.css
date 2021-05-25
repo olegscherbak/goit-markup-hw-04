@@ -104,6 +104,7 @@ li {
 .list-navigation-item {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 .link {
   font-weight: 500;
@@ -113,10 +114,7 @@ li {
   color: var(--head-color);
   text-decoration: none;
 }
-.link:hover,
-.link:focus {
-  color: var(--accent-color);
-}
+
 .studio-link,
 .portfolio-link {
   color: var(--accent-color);
@@ -126,6 +124,9 @@ li {
   font-size: 14px;
   line-height: 1.14;
   letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: var(--contact);
   text-decoration: none;
 }
@@ -140,16 +141,16 @@ li {
   margin-right: 10px;
   fill: var(--title-color);
 }
-.mail:hover .icon-envelope,
-.mail:focus .icon-envelope {
-  fill: var(--accent-color);
-}
 .icon-smartphone {
   margin-right: 10px;
   fill: var(--title-color);
 }
-.smartphone:hover .icon-smartphone,
-.smartphone:focus .icon-smartphone {
+.link-contact:hover .icon-envelope,
+.link-contact:focus .icon-envelope {
+  fill: var(--accent-color);
+}
+.link-contact:hover .icon-smartphone,
+.link-contact:focus .icon-smartphone {
   fill: var(--accent-color);
 }
 /* ========== END HEADER ========== */
@@ -247,10 +248,10 @@ li {
   display: flex;
   justify-content: space-between;
 }
-.icon-antenna {
+/* .icon-antenna {
   margin-right: auto;
   margin-left: auto;
-}
+} */
 /* .section-features-item::before {
   display: block;
   content: '';
@@ -264,6 +265,7 @@ li {
 } */
 .icon-features {
   display: flex;
+  align-items: center;
   justify-content: center;
   width: 270px;
   height: 120px;
@@ -386,6 +388,18 @@ li {
 .client-item {
   fill: var(--social-icon-color);
 }
+.clients .footer-link-social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 170px;
+  height: 92px;
+}
+.footer-link-social:hover .client-item,
+.footer-link-social:focus .client-item {
+  border-color: var(--accent-color);
+  fill: var(--accent-color);
+}
 /* ========== END CLIENTS ========== */
 
 /* ========== FOOTER ========== */
@@ -466,11 +480,13 @@ address {
   color: var(--hero-color);
 }
 .footer-social-container {
-  margin-top: 15px;
   margin-left: 70px;
 }
 .link-social:not(:last-child) {
   margin-right: 10px;
+}
+.footer-container {
+  align-items: baseline;
 }
 /* ========== END FOOTER ========== */
 
