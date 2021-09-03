@@ -17,6 +17,11 @@
     0px 2px 2px rgba(0, 0, 0, 0.12);
   --portfolio-product-color: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
+  --portfolio-overlay-color: rgba(33, 150, 243, 0.9);
+  --section-work-item-paragraf-color: rgba(47, 48, 58, 0.8);
+  --backdrop-color: rgba(0, 0, 0, 0.2);
+  --modal-color: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
 h1,
@@ -77,8 +82,8 @@ li {
 /* ========== HEADER ========== */
 
 .header {
-  padding-top: 24px;
-  padding-bottom: 25px;
+  /* padding-top: 24px;
+  padding-bottom: 25px; */
   border-bottom: 1px solid var(--border-color);
 }
 
@@ -107,14 +112,34 @@ li {
   justify-content: center;
 }
 .link {
+  position: relative;
   font-weight: 500;
   font-size: 14px;
   line-height: 1.14;
   letter-spacing: 0.02em;
   color: var(--head-color);
+  padding-top: 32px;
+  padding-bottom: 32px;
   text-decoration: none;
 }
+.studio-link::after,
+.portfolio-link::after {
+  content: '';
+  position: absolute;
+  left: 0%;
+  bottom: 0%;
+  display: block;
+  width: 100%;
+  height: 4px;
 
+  background: var(--accent-color);
+  border-radius: 2px;
+}
+.link:hover,
+.link:focus {
+  color: var(--accent-color);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
 .studio-link,
 .portfolio-link {
   color: var(--accent-color);
@@ -133,25 +158,26 @@ li {
 .link-contact:hover,
 .link-contact:focus {
   color: var(--accent-color);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .mail {
   margin-right: 50px;
 }
 .icon-envelope {
   margin-right: 10px;
-  fill: var(--title-color);
+  fill: currentColor;
 }
 .icon-smartphone {
   margin-right: 10px;
-  fill: var(--title-color);
+  fill: currentColor;
 }
 .link-contact:hover .icon-envelope,
 .link-contact:focus .icon-envelope {
-  fill: var(--accent-color);
+  fill: currentColor;
 }
 .link-contact:hover .icon-smartphone,
 .link-contact:focus .icon-smartphone {
-  fill: var(--accent-color);
+  fill: currentColor;
 }
 /* ========== END HEADER ========== */
 
@@ -280,6 +306,25 @@ li {
   margin-left: 30px;
   margin-top: 30px;
   list-style-type: none;
+  position: relative;
+}
+.section-work-item-paragraf {
+  position: absolute;
+  bottom: 0%;
+  left: 0%;
+  overflow: auto;
+  width: 370px;
+  height: 70px;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 1.14;
+  text-align: center;
+  padding-top: 27px;
+  padding-bottom: 27px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--hero-color);
+  background: var(--section-work-item-paragraf-color);
 }
 /* ========== END SECTION WORK ========== */
 
@@ -346,11 +391,13 @@ li {
 .social-list-link:hover,
 .social-list-link:focus {
   background-color: var(--accent-color);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-list-link:hover .social-list-icon,
 .social-list-link:focus .social-list-icon {
   fill: var(--hero-color);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .social-list-icon {
   width: 20px;
@@ -379,26 +426,23 @@ li {
 .client-list:hover,
 .client-list:focus {
   border-color: var(--accent-color);
-  fill: var(--accent-color);
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.client-list:hover .client-item,
-.client-list:focus .client-item {
-  fill: var(--accent-color);
-}
+
 .client-item {
   fill: var(--social-icon-color);
 }
-.clients .footer-link-social {
+.clients .client-link {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 170px;
   height: 92px;
 }
-.footer-link-social:hover .client-item,
-.footer-link-social:focus .client-item {
-  border-color: var(--accent-color);
+.client-link:hover .client-item,
+.client-link:focus .client-item {
   fill: var(--accent-color);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 /* ========== END CLIENTS ========== */
 
@@ -445,6 +489,7 @@ address {
 .footer-address:hover,
 .footer-address:focus {
   color: var(--accent-color);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .logofoot {
   margin: 0 auto;
@@ -471,6 +516,7 @@ address {
 .footer-social-list-link:hover,
 .footer-social-list-link:focus {
   background: var(--accent-color);
+  transition: background 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .footter-title {
   font-size: 14px;
@@ -493,6 +539,7 @@ address {
 /* ========== PORTFOLIO ========== */
 .portfolio-btn {
   font-family: inherit;
+  font-weight: 500;
   font-size: 16px;
   line-height: 1.62;
   text-align: center;
@@ -504,6 +551,7 @@ address {
   background: var(--btn-color);
   border-radius: 4px;
   border-color: transparent;
+  transition: background 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms, box-shadow 250ms;
 }
 .portfolio-btn:hover,
 .portfolio-btn:focus {
@@ -557,7 +605,60 @@ address {
   justify-content: center;
   margin-bottom: 50px;
 }
-.section-portfolio-item:hover,
-.section-portfolio-item:focus {
+.section-portfolio-item-list:hover,
+.section-portfolio-item-list:focus {
   box-shadow: var(--portfolio-product-color);
 }
+.overlay-list {
+  position: relative;
+  overflow: hidden;
+}
+.overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding: 63px 24px 63px 24px;
+  overflow: auto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 1.55;
+  letter-spacing: 0.03em;
+  color: var(--hero-color);
+  background: var(--portfolio-overlay-color);
+  transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.portfolio-link-item:hover .overlay,
+.portfolio-link-item:focus .overlay {
+  transform: translateY(0%);
+}
+.portfolio-link-item {
+  text-decoration: none;
+}
+/* ==========END PORTFOLIO ========== */
+
+/* ========== MODAL WINDOW ========== */
+.backdrop {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: var(--backdrop-color);
+  z-index: 100;
+}
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 528px;
+  height: 581px;
+  background: var(--hero-color);
+  box-shadow: var(--modal-color);
+  border-radius: 4px;
+}
+/* ========== END MODAL WINDOW ========== */
